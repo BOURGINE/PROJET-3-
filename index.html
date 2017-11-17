@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8"/>
+    <!-- balise méta pour les médias q -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Opengraph pour Facebook -->
+    <meta property="og:title" content="velib"/>
+    <meta property="og:type" content="application web"/>
+    <meta property="og:url" content="http://projet3.recherchefinancement.org"/>
+    <meta property="og:image" content="images/projet3.png"/>
+    <meta property="og:description" content="Velib Paris, reservation de vélos"/>
+    <!-- Opengraph pour Twitter -->
+    <meta name="twitter:card" content="velobib">
+    <meta name="twitter:site" content="velib">
+    <meta name="twitter:title" content="Application de location de vélos">
+    <meta name="twitter:description" content="application de location de vélos, paris">
+    <meta name="twitter:image" content="images/slider/petite_fille_mascotte.jpg">
+    
+    <link rel="shortcut icon" type="image/x-icon" href="img/icone.jpg" />
+   
+    <link rel="stylesheet" href="style.css" />
+    
+    
+    <title>Location de vélos</title>
+
+</head>
+	
+<body>
+<!--**********************************************
+			MENU FIX
+***************************************************-->
+    <nav>
+		<ul>
+		  <li><a href="index.html">Accueil</a></li>
+		  <li><a href="#section_slideshow">Comment ça marche?</a></li>
+		  <li><a href="#appli">Application</a></li>
+		</ul>
+	</nav>
+
+<!--**********************************************
+                LOGO VELIB
+**************************************************-->
+    <section id="section_logo"> 
+    <a href="#"><img id="logo" src="img/logo.png" alt="logo Paris Bike"></a>
+    </section>
+
+ <!--**********************************************
+ 			Slideshow slider et bouttons
+ **************************************************-->
+    <section id="section_slideshow"> 
+        <h1>Comment ça marche ?</h1>
+        
+		<div id="slideshow">
+            
+                <figure class="slide" style="display: block">
+                    <img src="img/01.jpg" alt="instructions">
+                    <figcaption class="text">1- Instructions</figcaption>
+               </figure>
+               
+               <figure class="slide">
+                    <img src="img/02.jpg" alt="instructions">
+                    <figcaption class="text">2- Cliquez sur un marqueur pour sélectionnez une station</figcaption>
+               </figure>
+               
+               <figure class="slide">
+                    <img src="img/03.jpg">
+                    <figcaption class="text">3- Cliquez sur le bouton "Réserver"</figcaption>
+               </figure>
+               
+               <figure class="slide">
+                    <img src="img/04.jpg" alt="instructions">
+                    <figcaption class="text">4- Signez dans le canvas et validez votre signature</figcaption>
+               </figure>
+            
+            <figure class="slide">
+                    <img src="img/05.jpg" alt="instructions">
+                    <figcaption class="text">5- Vous avez 20 MINS pour récupérer votre vélo (tic...tac...)</figcaption>
+               </figure>
+            
+            <div>
+            <a id="prev" >&#10094</a>
+            <a id="next">&#10095</a>
+            </div> 
+            
+         </div>  
+    </section>  <!--Fin slideshow-->
+
+ <!-- ****************************************
+ 			Application
+ 	******************************************-->
+    <section id="appli"> 
+        
+        <!--Le titre-->
+        <h1>L'application</h1>
+        
+        <!--Le corps-->
+        <div class="element_de_section" id="application">
+       		<!--Carte-->
+            <div id="map">
+            </div>
+            <!--Station-->
+            <div id="station"> 
+                
+                <h2> Informations sur la station</h2>
+                <ul id="listeInfo">
+                    <li class="info"> 
+                        <span class="info_station"> STATUT :</span>
+                        <span id="statusStation"> <!-- status.js--> </span>
+                    </li>
+                    <li class="info">
+                        <span class="info_station"> NOM:</span>
+                        <span id="nomStation"> <!-- nom.js--> </span>
+                    </li>
+                    <li class="info"> 
+                         <span class="info_station"> ADRESSE:</span>
+                         <span id="adresseStation"> <!-- adresse.js--></span>
+                    </li>
+                    <li class="info"> 
+                        <span class="info_station"> VELOS DISPONIBLES:</span>
+                        <span id="veloDispo"> <!-- Nombre.js --> </span>
+                    </li>
+                    
+                    <li class="info"> 
+                        <span class="info_station"> STAND DISPONIBLES:</span>
+                        <span id="standDispo"> <!-- Nombre.js--> </span>
+                    </li>
+                </ul>
+                
+                <p id="erreur" class="message"> <!-- Message a afficher en Js--></p> 
+                
+                <div>
+                    <button id="bouttonReserver">Réserver</button>
+                </div>
+                
+                <p id="erreur" class="message"> <!-- Message a afficher en Js--></p> 
+                
+                <div id="case_canvas">
+                    <div id="div_canvas"> <!--Je mets le canvas dans un div pour centrer avec flex-->
+                        <canvas id="canvas" width="250" height="150"></canvas>
+                    </div>
+                    <div id="buttonsOfCanvas">
+                        <button id="valider" >Valider</button>
+                        <button id="annuler">Effacer</button>
+                    </div>
+                </div>
+            </div> <!-- Fin Station -->   
+        </div> <!--Fin corps element de section-->
+    </section> <!--FIn application-->
+
+
+<!-- ****************************************
+		 Reservation encours
+********************************************* -->
+    <section id="reservation"> 
+        <h1> Votre réservation</h1>
+
+		<div class="element_de_section">
+            
+            <div id="messageValidation">
+                <p id="text_final"></p>
+                <p id="text_final2"></p>
+                
+                <div id="timerBlock"> 
+                    <div id="min"> 1</div>
+                    <div id="mn"> MIN</div>
+                    <div id="sec"> 60</div>
+                    <div id="sc"> SEC</div> 
+                </div>
+                
+                <div id="timerBlock"> 
+                     <button id="annuler_rese"> Annuler la réservation</button>
+                </div>
+                
+            </div>
+            
+           
+       	
+        </div>
+	</section>
+
+    
+<!-- Javascript -->
+    
+    
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"> </script>
+    
+    
+    <script type="text/javascript" src="javaScript/slider.js"></script>
+    
+    <script  type="text/javascript" src="javaScript/map2.js"></script>
+    
+    <script  type="text/javascript" src="javaScript/markerclusterer.js"> </script>
+    
+    <script  type="text/javascript" src="javaScript/canvas.js"> </script>
+    
+    <script type="text/javascript" src="javaScript/timer.js"> </script>
+    
+    <script async defer 
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnmlHIm-xWlM5vkn9Maa1YMOCQ-JIBopI&callback=maCarte.init">
+    </script>
+
+    
+</body>
+</html>
